@@ -7,11 +7,13 @@
 #define visited 5
 using namespace std;
 
-vector<vector<int>>mapa(6,vector<int>(6));
+int mapa[6][6];
 queue<pair<int,int>>q;
 pair<int,int>salida;
 bool outFinded=false;
 void bfs(int x, int y);
+
+int pasos=0;
 
 int main(){
 ifstream e("entrada.in");
@@ -41,12 +43,14 @@ ifstream e("entrada.in");
 	pair<int,int>actual;
 	mapa[entrada.first][entrada.second]=visited;
 	
+
 	while(!q.empty()){
 		actual = q.front();
 		q.pop();
 		int x = actual.first;
 		int y = actual.second;
-	
+		pasos++;
+
 		// Arriba
 		if(x-1>=0){
 			bfs(x-1,y);
@@ -77,7 +81,7 @@ e.close();
 void bfs(int x, int y){
 	if(mapa[x][y]==out){
 		outFinded=true;
-		cout<<"Salida encontrada en: "<<x<<" "<<y;
+		cout<<"Salida encontrada en: "<<x<<" "<<y<<" en "<<pasos<<" pasos";
 	}else
 	if(mapa[x][y]==free){
 		q.push({x,y});
