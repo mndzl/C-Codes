@@ -42,7 +42,8 @@ ifstream e("entrada.in");
 	q.push({entrada.first,entrada.second});
 	pair<int,int>actual;
 	mapa[entrada.first][entrada.second]=visited;
-	
+	int dx[]={-1,1,0,0};
+	int dy[]={0,0,-1,1};
 
 	while(!q.empty()){
 		actual = q.front();
@@ -51,24 +52,10 @@ ifstream e("entrada.in");
 		int y = actual.second;
 		pasos++;
 
-		// Arriba
-		if(x-1>=0){
-			bfs(x-1,y);
-			if(outFinded)return 0;
-		}
-		// Abajo
-		if(x+1<=5){
-			bfs(x+1,y);
-			if(outFinded)return 0;
-		}
-		// Izquierda
-		if(y-1>=0){
-			bfs(x,y-1);
-			if(outFinded)return 0;
-		}
-		// Derecha
-		if(y+1<=5){
-			bfs(x,y+1);
+		for(int z=0; z<4; z++){
+			int nx = x+dx[z];
+			int ny = y+dy[z];
+			if(nx>=0 && nx<6 && ny>=0 && ny<6)bfs(nx,ny);
 			if(outFinded)return 0;
 		}
 	}
