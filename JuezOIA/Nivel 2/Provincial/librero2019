@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+#define forn(i,n) for(int i=0; i<int(n); i++)
+#define h first
+#define pos second
+using namespace std;
+
+
+int librero(vector<int> bases, vector<int> libros, vector<int> &orden)
+{
+	int length = bases.size();
+	vector<pair<int,int>>lasbases(length);
+	vector<pair<int,int>>loslibros(length);
+	
+	forn(i,length){
+		lasbases[i].h = bases[i];
+		lasbases[i].pos = i;
+		loslibros[i].h = libros[i];
+		loslibros[i].pos = i;
+	}
+	
+	sort(lasbases.begin(),lasbases.end());
+	sort(loslibros.rbegin(),loslibros.rend());
+	orden.resize(length);
+	
+	int height = lasbases[0].h + loslibros[0].h;
+	forn(i,length){
+		if(lasbases[i].h + loslibros[i].h != height){
+			orden.clear();
+			return -1;
+		}
+		orden[lasbases[i].pos] = loslibros[i].pos+1;
+		
+	}
+	
+	return height;
+}
