@@ -5,26 +5,28 @@ int main(){
 	vector<int>v = {7, 10, 4, 1, 9, 5, 9, 6};
 	
 	int x = 12;
-	int j = v.size()-1, i=0;
+	int n = v.size();
+	int j = n-1;
 	int resA=-1, resB=-1;
 	
-	while(i<4 and j>4){
-		int sum = v[i]+v[j];
-		printf("Sumando V[%i] y V[%i] obtenemos %i\n", i, j, sum);
-		
-		if (sum<x) i++;
-		
-		else if(sum>x) j--;
-		
-		else{
+	vector<pair<int,int>>vp;
+	for(int i=0; i<n; i++){
+		vp.push_back({v[i], i});
+	} 
+	
+	sort(vp.begin(), vp.end());
+	
+	for(int i=0; i<n; i++){
+		while(j>i && vp[i].first+vp[j].first>x) j--;
+		if(j>1 && vp[i].first+vp[j].first==x){
 			resA = i;
 			resB = j;
 			break;
 		}
-		
 	}
 	
-	if(resA != -1)	printf("Sumando V[%i] y V[%i] obtenemos %i", resA, resB, x);
+	
+	if(resA != -1)	printf("Sumando V[%i] y V[%i] obtenemos %i", vp[resA].second, vp[resB].second, x);
 	
 	else cout<<"No se ha encontrado un par que sume "<<x<<endl;
 	
