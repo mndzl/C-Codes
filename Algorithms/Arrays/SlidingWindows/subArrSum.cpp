@@ -2,32 +2,28 @@
 using namespace std;
 
 int main(){
+	int arr[] = {2,4,6,1,2,4,5,7};
+	int x = 9;
 	
-	vector<int> v = {2, 3, 2, 5, 1, 5, 2, 3};
-	
-	int x = 8;
-	int j = 0;
-	int n = v.size();
 	int sum = 0;
-	int resI, resJ;
+	int j = 0;
 	
-	for(int i=0; i<n; i++){
-		printf("El arreglo [%i..%i] da %i como suma\n", i,j,sum);
-		while(j<n and sum<x){
-			sum += v[j++];
-			printf("El arreglo [%i..%i] da %i como suma\n", i,j,sum);
+	for(int i=0; i<8; i++){
+		while(j<8 and sum<x){
+			sum += arr[j++];
+			printf("Arreglo actual: [%i..%i] con suma %i \n", i, j-1, sum);
 		}
 		if(sum == x){
-			resI = i;
-			resJ = j;
-			printf("El subarreglo [%i..%i] da %i", resI, resJ, x);
+			printf("El subarreglo [%i..%i] suma %i", i, j-1, x);
 			return 0;
 		}
-		sum-= v[i];
+		
+		sum -= arr[i]; 
+		
 	}
 	
-	cout<<"No se ha encontrado un subarreglo que cumpla las condiciones";
-	
-	
+	cout<<"No se ha encontrado un arreglo que de como resultado "<<x<<endl;
+
+
 	return 0;
 }
