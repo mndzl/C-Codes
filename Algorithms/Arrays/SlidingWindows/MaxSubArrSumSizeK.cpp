@@ -13,13 +13,21 @@ int main(){
 		sum += v[i];
 	}
 	
+	
+	int resI = -1;
+	int resJ = -1;
+	
 	for(int j=k; j<v.size(); j++){
 		sum += v[j] - v[j-k];
+		if(max_sum<sum){
+			max_sum = sum;
+			resI = j-k+1;
+			resJ = j;
+		}
 		max_sum = max(sum,max_sum);
 	}
 
-	
-	cout<<max_sum;
+	printf("Suma maxima (%i) en la posición [%i..%i]", max_sum, resI, resJ);
 
 	return 0;
 }
