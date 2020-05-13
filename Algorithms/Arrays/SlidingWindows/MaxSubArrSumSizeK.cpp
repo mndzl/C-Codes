@@ -24,7 +24,6 @@ int main(){
 			resI = j-k+1;
 			resJ = j;
 		}
-		max_sum = max(sum,max_sum);
 	}
 
 	printf("Suma maxima (%i) en la posición [%i..%i]", max_sum, resI, resJ);
