@@ -1,3 +1,5 @@
+// Encontrar un subarreglo que la suma de los elementos de como resultado X
+
 #include <bits/stdc++.h>
 using namespace std;
 
