@@ -1,3 +1,5 @@
+// Obtener subarreglo de tamaño K el cual la suma de sus elementos sea la mayor
+
 #include <bits/stdc++.h>
 using namespace std;
 
