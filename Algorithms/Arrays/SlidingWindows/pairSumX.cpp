@@ -1,3 +1,5 @@
+// Obtener un par de numeros en el arreglo que la suma de ambos de como resultado X.
+
 #include <bits/stdc++.h>
 using namespace std;
 
