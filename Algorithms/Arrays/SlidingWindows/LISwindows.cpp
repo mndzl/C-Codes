@@ -1,3 +1,5 @@
+// Encontrar la secuencia más larga de elementos que están ordenados de menor a mayor
+
 #include <bits/stdc++.h>
 using namespace std;
 
