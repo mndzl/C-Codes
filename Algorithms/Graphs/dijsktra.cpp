@@ -53,7 +53,7 @@ int main(){
 				if(graph[actual][i]!=0){ //Verficación de conexión
 					
 					/* Si la distancia del nodo actual + el camino entre el
-					 * nodo actual y el nodo i es mayor a la distancia del 
+					 * nodo actual y el nodo i es menor a la distancia del 
 					 * nodo[i], actualizo y guardo nodo actual en .provent */
 					if((nodo[actual].distance+graph[actual][i])<nodo[i].distance){
 						nodo[i].distance=(nodo[actual].distance+graph[actual][i]);
